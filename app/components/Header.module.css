@@ -1,0 +1,69 @@
+.topBar {
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 1rem;
+    position: sticky;
+    z-index: 100;
+    font-weight: normal;
+    font-size: 11pt;
+    color: gray;
+}
+
+.scroll {
+    border-bottom: 1px solid gray;
+}
+.brandName {
+    font-weight: bold;
+    font-size: 14pt;
+}
+
+.logo {
+    padding-right: 0.5em;
+}
+
+.topBar a {
+    text-decoration: none;
+    color: var(--gray11);
+}
+
+.topBar ul {
+    list-style-type: none;
+}
+
+.topBar li {
+    display: list-item;
+}
+
+.topBar li + li {
+    margin-left: 2em;
+}
+.leftNav {
+    margin: 0 2rem 0 0;
+    padding: 0;
+    display: flex;
+    float: left;
+}
+
+.rightNav {
+    margin: 0 2rem 0 0;
+    padding: 0;
+    display: flex;
+    float: right;
+}
+
+.skip {
+    position: absolute;
+    left: -999em;
+}
+
+.skip:focus, .skip:active {
+    position: relative;
+    overflow: auto;
+    display: inline-block;
+}
+
+.skip:focus {
+    color: white;
+    border: none;
+}
