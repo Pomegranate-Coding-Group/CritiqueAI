@@ -2,5 +2,5 @@
 CritiqueAI job listing analysis and insight platform
 
 ## Running CritiqueAI
-Install packages `npm install`
-Run dev build `npm run dev`
+Install packages `yarn add`
+Run dev build `yarn dev`
