@@ -1074,6 +1074,11 @@ json5@^1.0.1:
     array-includes "^3.1.3"
     object.assign "^4.1.2"
 
+keyword-extractor@^0.0.21:
+  version "0.0.21"
+  resolved "https://registry.yarnpkg.com/keyword-extractor/-/keyword-extractor-0.0.21.tgz#e2f5724c12d1ab83255b40a0777686ddf7c68200"
+  integrity sha512-ue6P6D5JRo3l5E8jqG3KKfBa8ec9dV/i4eNTDlTknsT6n/YYyNhRv660wopptnWE4UJC4r2ezGxZgC5UFf5nKQ==
+
 language-subtag-registry@~0.3.2:
   version "0.3.21"
   resolved "https://registry.yarnpkg.com/language-subtag-registry/-/language-subtag-registry-0.3.21.tgz#04ac218bea46f04cb039084602c6da9e788dd45a"

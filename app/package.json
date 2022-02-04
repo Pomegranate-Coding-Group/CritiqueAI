@@ -5,11 +5,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "run": "next build && next start"
   },
   "dependencies": {
     "@stitches/react": "^1.2.6",
     "classnames": "^2.3.1",
+    "keyword-extractor": "^0.0.21",
     "next": "12.0.9",
     "react": "17.0.2",
     "react-dom": "17.0.2"
