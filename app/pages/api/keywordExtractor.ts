@@ -1,11 +1,19 @@
 const extractor = require("keyword-extractor")
 
+/**
+ * Represents a unit of our internal knowledgebase of jobs and their keywords
+ * Can initially store our data as an array of these objs, and if needed convert into a DB with tables that we can join based on industry and title.
+ */
 interface JobWords {
     industry: string;
     title: string;
     keywords: Set<string>;
 }
 
+/**
+ * Represents a job listing supplied by a user.
+ * Ideally this would be the obj structure coming from frontend request
+ */
 interface JobListing {
     industry: string;
     title: string;
@@ -50,6 +58,11 @@ function filterKeywords(words: string[], keywords: Set<string>): string[] {
     })
 }
 
+/**
+ * Gets the frequencies of selected keywords from a block of text
+ * @param text Block of text to be parsed
+ * @param keywords Specific keywords to extract from text
+ */
 export default function getKeywords(text: string, keywords: Set<string>) {
     let words = filterKeywords(parseText(text), keywords)
     let wordMap: Map<string, number> = getFrequencies(words)
