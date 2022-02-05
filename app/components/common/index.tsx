@@ -5,6 +5,7 @@ import {Container} from './Container';
 import {Button} from './Button';
 import {Link} from './Link';
 import {Box} from './Box';
+import {Accordian} from './Accordian';
 
 
-export {Banner, Text, Flex, Container, Button, Link, Box};
+export {Banner, Text, Flex, Container, Button, Link, Box, Accordian};
