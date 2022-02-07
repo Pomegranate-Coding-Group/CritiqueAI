@@ -1,3 +1,5 @@
+import type { NextApiRequest, NextApiResponse } from 'next'
+
 const extractor = require("keyword-extractor")
 
 /**
@@ -18,6 +20,14 @@ interface JobListing {
     industry: string;
     title: string;
     text: string;
+}
+
+/**
+ * The format for supplying extraction results to the frontend
+ */
+interface KeywordsResponse {
+    keywords: string[];
+    frequencies: number[];
 }
 
 
@@ -63,10 +73,11 @@ function filterKeywords(words: string[], keywords: Set<string>): string[] {
  * @param text Block of text to be parsed
  * @param keywords Specific keywords to extract from text
  */
-export default function getKeywords(text: string, keywords: Set<string>) {
+export function getKeywords(text: string, keywords: Set<string>): Map<string, number> {
     let words = filterKeywords(parseText(text), keywords)
     let wordMap: Map<string, number> = getFrequencies(words)
-    console.log(wordMap.keys())
+    console.log(Array.from(wordMap.keys())) //debugline
+    return wordMap
 }
 
 
@@ -96,3 +107,34 @@ export function testKeywords() {
     getKeywords(exampleInput.text, exampleWords.keywords)
 }
 testKeywords();
+
+
+/**
+ * API ROUTING
+ */
+export default function handler(req: NextApiRequest, res: NextApiResponse) {
+    if (req.method !== 'POST') {
+        res.status(400).send({ message: 'Unsupported method. Only post requests are supported'})
+        return
+    }
+    if (req.headers['content-type'] !== 'application/json') {
+        res.status(400).send({ message: 'Something went wrong with POST request, please ensure content type header is application/json'})
+        return
+    }
+    const input: JobListing = req.body //
+    // const input: Joblisting = JSON.parse(req.body) // Use this if api bodyParser: false
+    console.log(req.body) // debugline
+
+
+    // LOAD IN DATABANK OF KEYWORDS BASED ON TITLE/INDUSTRY
+    // for now it is just a single json obj
+    const wordBank = exampleWords.keywords
+
+    const keywordMap: Map<string, number> = getKeywords(input.text, wordBank)
+    const keywordResp: KeywordsResponse = {
+        keywords: Array.from(keywordMap.keys()),
+        frequencies: Array.from(keywordMap.values())
+
+    }
+    res.status(200).send(keywordResp)
+}
