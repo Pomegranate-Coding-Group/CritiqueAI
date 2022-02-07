@@ -6,6 +6,7 @@ import {Button} from './Button';
 import {Link} from './Link';
 import {Box} from './Box';
 import {Accordian} from './Accordian';
+import {ErrorPopup} from './ErrorPopup';
 
 
-export {Banner, Text, Flex, Container, Button, Link, Box, Accordian};
+export {Banner, Text, Flex, Container, Button, Link, Box, Accordian, ErrorPopup};
