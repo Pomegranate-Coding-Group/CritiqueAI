@@ -1,4 +1,5 @@
 
+import { Text } from "@components/common";
 import Header from "@components/Header";
 import { TitleAndMetaTags } from "@components/TitleAndMetaTags";
 
@@ -7,7 +8,7 @@ export default function Results(){
         <TitleAndMetaTags />
         <Header />
         <main>
-            <h1>Results</h1>
+            <Text size="6" as="h1">Job Listing Results</Text>
         </main>
     </>
 }
