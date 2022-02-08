@@ -486,3 +486,17 @@ export const darkTheme = createTheme('dark-theme', {
     shadowDark: 'hsl(206 22% 7% / 20%)',
   },
 });
+
+export const globalStyles = globalCss({
+  body: {
+    backgroundRepeat: "repeat",
+    backgroundSize: "1000px",
+    backgroundImage: "$backgroundImage",
+    backgroundColor: "$slate2",
+    margin: 0,
+    fontFamily: "$mono",
+    fontSmooth: "antialiased",
+    lineHeight: 1,
+  },
+  "*": { margin: 0, padding: 0, bxs: "border-box" },
+});
