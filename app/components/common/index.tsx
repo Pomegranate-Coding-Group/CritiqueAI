@@ -9,3 +9,4 @@ export { Accordian } from './Accordian';
 export { ErrorPopup } from './ErrorPopup';
 export { SkipToMainContent } from "./SkipToMainContent";
 export { AppBar } from "./AppBar";
+export { Heading } from "./Heading";
