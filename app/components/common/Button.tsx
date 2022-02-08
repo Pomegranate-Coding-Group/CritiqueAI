@@ -1,4 +1,4 @@
-import { styled } from '../../stitches.config';
+import { styled } from '@stitches-config';
 
 export const Button = styled('button', {
   // Reset
@@ -23,7 +23,6 @@ export const Button = styled('button', {
   // Custom
   height: '$5',
   px: '$2',
-  fontFamily: '$untitled',
   fontSize: '$2',
   fontWeight: 500,
   fontVariantNumeric: 'tabular-nums',
