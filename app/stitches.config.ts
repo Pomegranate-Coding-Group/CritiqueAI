@@ -489,10 +489,6 @@ export const darkTheme = createTheme('dark-theme', {
 
 export const globalStyles = globalCss({
   body: {
-    backgroundRepeat: "repeat",
-    backgroundSize: "1000px",
-    backgroundImage: "$backgroundImage",
-    backgroundColor: "$slate2",
     margin: 0,
     fontFamily: "$mono",
     fontSmooth: "antialiased",
