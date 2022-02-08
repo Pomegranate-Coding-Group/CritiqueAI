@@ -1,7 +1,11 @@
-import { styled } from '@stitches/react';
+import { styled } from '@stitches-config';
 import * as Accordion from '@radix-ui/react-accordion';
 import { IoCaretDownSharp } from "react-icons/io5";
 import {Text} from '@components/common';
+
+const AccordionRoot = styled(Accordion.Root, {});
+const AccordionHeader = styled(Accordion.Header, {});
+const AccordionContent = styled(Accordion.Content, {});
 
 const AccordionChevron = styled(IoCaretDownSharp, {
 width: "18px",
@@ -55,15 +59,15 @@ export const Accordian = ({title, items, setIndustry} : AccordianProps) => {
         setIndustry(value);
     }
     return(
-        <Accordion.Root type="single" collapsible >
+        <AccordionRoot type="single" collapsible >
             <AccordionContainer value="item-1" >
-            <Accordion.Header>
+            <AccordionHeader>
                 <AccordionTrigger>
                 <Text size='3'>{title}</Text>
                 <AccordionChevron aria-hidden size={30} />
                 </AccordionTrigger>
-            </Accordion.Header>
-            <Accordion.Content style={{position: 'absolute'}}>
+            </AccordionHeader>
+            <AccordionContent style={{position: 'absolute'}}>
                     {items.map((value, key) => {
                             return(
                                 <AccordionItem key={key} onClick={() => {handleDropdownValueClicked(value)}}>
@@ -71,8 +75,8 @@ export const Accordian = ({title, items, setIndustry} : AccordianProps) => {
                                 </AccordionItem>
                             )
                     })}
-            </Accordion.Content>
+            </AccordionContent>
             </AccordionContainer>
-        </Accordion.Root>
+        </AccordionRoot>
     )
 };
