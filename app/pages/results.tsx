@@ -1,12 +1,12 @@
 
 import { Text } from "@components/common";
-import Header from "@components/Header";
+import NavBar from "@components/NavBar";
 import { TitleAndMetaTags } from "@components/TitleAndMetaTags";
 
 export default function Results(){
     return <>
         <TitleAndMetaTags />
-        <Header />
+        <NavBar />
         <main>
             <Text size="6" as="h1">Job Listing Results</Text>
         </main>
