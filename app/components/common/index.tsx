@@ -15,3 +15,4 @@ export { Paragraph } from "./Paragraph";
 export { Separator } from "./Separator";
 export { Card } from "./Card";
 export { IconButton } from "./IconButton";
+export { Tooltip } from "./Tooltip";
