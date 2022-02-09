@@ -10,25 +10,16 @@ import {
     Separator,
 } from "@components/common";
 import { TitleAndMetaTags } from "@components/TitleAndMetaTags";
+import { Banner, KeywordItem } from "@components/results/";
 
-
-export default function Home() {
+export default function Results() {
     return (
         <>
             <TitleAndMetaTags />
             <Box>
                 <Header />
                 <main>
-                    <Section size="3">
-                        <Container size="2">
-                            <Heading size="4" css={{ ta: "center", mb: "$3" }}>
-                                Here's what we found
-                            </Heading>
-                            <Paragraph size="2" css={{ ta: "center" }}>
-                                We checked through the job listing.
-                            </Paragraph>
-                        </Container>
-                    </Section>
+                    <Banner />
                     <Flex css={{ jc: "center" }}>
                         <Separator size="2" />
                     </Flex>
@@ -50,11 +41,10 @@ export default function Home() {
                             <Heading size="3" css={{ ta: "center", mb: "$3" }}>
                                 Keywords
                             </Heading>
-                            <Paragraph size="2" css={{ ta: "center" }}>
-
-                            </Paragraph>
                             <Flex gap="3">
-
+                                <KeywordItem name="C#" priority={1} description="General-purpose, multi-paradigm programming language." />
+                                <KeywordItem name="Agile Development" priority={2} description="Iterative approach to project management and software development." />
+                                <KeywordItem name="C++" priority={2} description="General-purpose programming language" />
                             </Flex>
                         </Container>
                     </Section>
