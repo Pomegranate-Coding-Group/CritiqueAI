@@ -11,6 +11,7 @@ import {
 } from "@components/common";
 import { TitleAndMetaTags } from "@components/TitleAndMetaTags";
 import { Banner, KeywordItem } from "@components/results/";
+import { TooltipProvider } from "@components/common/TooltipProvider";
 
 export default function Results() {
     return (
@@ -41,11 +42,13 @@ export default function Results() {
                             <Heading size="3" css={{ ta: "center", mb: "$3" }}>
                                 Keywords
                             </Heading>
-                            <Flex gap="3">
-                                <KeywordItem name="C#" priority={1} description="General-purpose, multi-paradigm programming language." />
-                                <KeywordItem name="Agile Development" priority={2} description="Iterative approach to project management and software development." />
-                                <KeywordItem name="C++" priority={2} description="General-purpose programming language" />
-                            </Flex>
+                            <TooltipProvider delayDuration={100}>
+                                <Flex gap="3">
+                                    <KeywordItem name="C#" priority={1} description="General-purpose, multi-paradigm programming language." tags={["common", "listed"]} />
+                                    <KeywordItem name="Agile Development" priority={2} description="Iterative approach to project management and software development." />
+                                    <KeywordItem name="C++" priority={2} description="General-purpose programming language" />
+                                </Flex>
+                            </TooltipProvider>
                         </Container>
                     </Section>
                 </main>
