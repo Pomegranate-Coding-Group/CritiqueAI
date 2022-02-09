@@ -13,3 +13,4 @@ export { Heading } from "./Heading";
 export { Section } from "./Section";
 export { Paragraph } from "./Paragraph";
 export { Separator } from "./Separator";
+export { Card } from "./Card";
