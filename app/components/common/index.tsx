@@ -11,3 +11,5 @@ export { SkipToMainContent } from "./SkipToMainContent";
 export { AppBar } from "./AppBar";
 export { Heading } from "./Heading";
 export { Section } from "./Section";
+export { Paragraph } from "./Paragraph";
+export { Separator } from "./Separator";

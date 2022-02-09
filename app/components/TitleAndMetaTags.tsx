@@ -11,7 +11,7 @@ type TitleAndMetaTagsProps = {
 };
 
 export function TitleAndMetaTags({
-  title = 'Critique AI',
+  title = 'Resume Quest',
   description = 'We\'ll help you refine and tailor your resume.',
   image,
   url = 'https://critique-ai.com',

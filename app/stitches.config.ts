@@ -489,6 +489,7 @@ export const darkTheme = createTheme('dark-theme', {
 
 export const globalStyles = globalCss({
   body: {
+    background: "$loContrast",
     margin: 0,
     fontFamily: "$mono",
     fontSmooth: "antialiased",
