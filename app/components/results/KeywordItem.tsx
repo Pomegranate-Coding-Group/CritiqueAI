@@ -12,11 +12,11 @@ import {
   Tooltip,
   VerifiedBadge,
   Button,
+  Link,
 } from "@components/common";
 import { VariantProps } from "@stitches-config";
 import { IoCloseOutline } from "react-icons/io5";
 import type * as Stitches from "@stitches/react";
-import Link from "next/link";
 
 type BannerVariant = Stitches.VariantProps<typeof Badge>["variant"];
 
@@ -100,9 +100,9 @@ export function KeywordItem({
   return (
     <Box css={{ width: 300 }}>
       <Card css={{ p: "$3" }}>
-        <Flex justify={"between"} align={"center"}>
+        <Flex justify={"between"} align={"center"} css={{mb: "$2"} }>
           <Heading
-            css={{ mb: "$2", display: "inline-flex", alignItems: "center" }}
+            css={{display: "inline-flex", alignItems: "center" }}
           >
             {name}
             {verified && <VerifiedTag />}

@@ -2,6 +2,7 @@ import { styled } from '@stitches-config';
 
 export const IconButton = styled('button', {
   // Reset
+  alignItems: 'center',
   appearance: 'none',
   borderWidth: '0',
   boxSizing: 'border-box',
