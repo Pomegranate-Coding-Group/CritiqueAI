@@ -1,0 +1,21 @@
+{
+    "wordLists": [
+        {
+            "industry": "swe",
+            "title": "engineer",
+            "words": [
+                "java", "git", "python", "C", "react", "javascript", "AWS", "Azure", "GCloud", "git", "agile", "docker", "vcs", "typescript", "go", "SQL", "design", "parallel", "reliable", "linux", "bash", "devops", "leadership"
+            ]
+        },
+        {
+            "industry": "ux",
+            "title": "designer",
+            "words": {}
+        },
+        {
+            "industry": "ux",
+            "title": "researcher",
+            "words": {}
+        }
+    ]
+}

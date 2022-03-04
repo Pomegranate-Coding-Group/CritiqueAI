@@ -21,8 +21,10 @@ const Home: NextPage = () => {
       setPageError('Please enter a job descirption and select an inudstry');
       return;
     }
-
     setLoading(true);
+
+    
+
   }
 
   return (
@@ -43,7 +45,7 @@ const Home: NextPage = () => {
             </Flex>
 
             <Flex direction="row" justify='center' align="center" gap="8">
-              <Accordian title={industry} setIndustry={setIndustry} items={['UX Design', 'UX Research']} />
+              <Accordian title={industry} setIndustry={setIndustry} items={['Software Engineering', 'UX Design']} />
               <Button size='2' onClick={() => handleSubmit()}>
                 {loading ? <ClipLoader size={20} /> : <></>}
                 <Text style={loading ? { marginLeft: '10px' } : {}}>Submit</Text>
