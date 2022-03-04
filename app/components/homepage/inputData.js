@@ -2,7 +2,7 @@ import { Flex, Box, Button, Container, Accordian, Text, ErrorPopup, Banner } fro
 import { useState } from 'react';
 import ClipLoader from "react-spinners/ClipLoader";
 
-export default function InputData ({loading}) {
+export default function InputData ({loading, getData}) {
     const [industry, setIndustry] = useState('Industry');
     const [jobDescriptionText, setJobDescriptionText] = useState(null);
     const [pageError, setPageError] = useState(null);
@@ -17,10 +17,7 @@ export default function InputData ({loading}) {
         setPageError('Please enter a job descirption and select an inudstry');
         return;
         }
-        setLoading(true);
-
-        
-
+        getData();
     }
     return (
         <Box css={{ mt: "2em" }}>

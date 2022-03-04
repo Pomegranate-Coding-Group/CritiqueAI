@@ -10,15 +10,25 @@ import ResultsPage from '@components/homepage/ResultsPage';
 const Home: NextPage = () => {
   const [loading, setLoading] = useState(null);
   const [dataRetrieved, setDataRetrieved] = useState('yes');
+
+    const getData = ()=> {
+    //setLoading = true
+
+    // Colins functions here
+
+    //on success
+      //set dataRetrieved
+    }
+  
   return (
     <>
       <TitleAndMetaTags />
       <NavBar />
       {!dataRetrieved && (
-        <InputData loading={loading}/>
+        <InputData loading={loading} getData={getData}/>
       )}
       {dataRetrieved && (
-        <ResultsPage />
+        <ResultsPage dataRetrieved={dataRetrieved} />
       )}
     </>
   )
