@@ -73,7 +73,7 @@ const tagColors: { [tag: string]: TagInfo } = {
 };
 function TagItem({ name, description, variantColor }: TagInfo) {
   return (
-    <Tooltip content={description}>
+    <Tooltip key={name} content={description}>
       <Badge as="button" size="2" variant={variantColor} interactive>
         {name}
       </Badge>

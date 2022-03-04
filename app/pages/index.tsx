@@ -9,7 +9,7 @@ import ResultsPage from '@components/homepage/ResultsPage';
 
 const Home: NextPage = () => {
   const [loading, setLoading] = useState(null);
-  const [dataRetrieved, setDataRetrieved] = useState('yes');
+  const [dataRetrieved, setDataRetrieved] = useState(null);
   return (
     <>
       <TitleAndMetaTags />

@@ -18,3 +18,8 @@ export { IconButton } from "./IconButton";
 export { Tooltip } from "./Tooltip";
 export { Badge } from "./Badge";
 export { VerifiedBadge } from "./VerifiedBadge";
+export { AlertDialog, AlertDialogTrigger, AlertDialogTitle, AlertDialogDescription, AlertDialogAction, AlertDialogCancel, AlertDialogContent } from "./AlertDialog";
+export { Panel } from "./Panel";
+export { Overlay } from "./Overlay";
+export { Dialog, DialogClose, DialogContent, DialogDescription, DialogTitle, DialogTrigger } from "./Dialog";
+export { Select, SelectContent, SelectGroup, SelectIcon, SelectInput, SelectItem, SelectItemIndicator, SelectItemText, SelectLabel, SelectScrollDownButton, SelectScrollUpButton, SelectSeparator, SelectTrigger, SelectValue, SelectViewport, DefaultSelectItem } from "./Select";
