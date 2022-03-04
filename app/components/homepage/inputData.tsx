@@ -1,13 +1,18 @@
 import { Flex, Box, Button, Container, Accordian, Text, ErrorPopup, Banner, AlertDialog, SelectInput, SelectGroup, DefaultSelectItem, SelectLabel } from '@components/common';
-import { useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import ClipLoader from "react-spinners/ClipLoader";
 
-export default function InputData({ loading }) {
+interface InputDataProps {
+  loading: boolean;
+  getData: any;
+}
+
+export const InputData = ({ loading, getData }: InputDataProps) => {
   const [industry, setIndustry] = useState('Industry');
   const [jobDescriptionText, setJobDescriptionText] = useState("");
   const [pageError, setPageError] = useState(null);
 
-  const handleJobDescriptionChange = (e) => {
+  const handleJobDescriptionChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
     console.log(e.target.value);
     setJobDescriptionText(e.target.value);
   }
@@ -17,16 +22,13 @@ export default function InputData({ loading }) {
       setPageError('Please enter a job descirption and select an inudstry');
       return;
     }
-    setLoading(true);
-
-
-
+    getData(jobDescriptionText, industry);
   }
   return (
     <Box css={{ mt: "2em" }}>
       <Container size="1" style={{ marginTop: "50px", marginBottom: "50px" }}>
         <Banner>
-          <Text size='7'>CritiqueAI</Text>
+          <Text size='7'>Resume Quest</Text>
         </Banner>
       </Container>
       <Container size="4">

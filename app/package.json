@@ -1,5 +1,5 @@
 {
-  "name": "critique-ai",
+  "name": "resume-quest",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -16,6 +16,7 @@
     "@radix-ui/react-separator": "^0.1.3",
     "@radix-ui/react-tooltip": "^0.1.6",
     "@stitches/react": "^1.2.6",
+    "axios": "^0.26.0",
     "classnames": "^2.3.1",
     "keyword-extractor": "^0.0.21",
     "lodash.merge": "^4.6.2",
