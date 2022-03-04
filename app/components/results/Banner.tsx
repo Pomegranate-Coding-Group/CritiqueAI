@@ -16,7 +16,7 @@ export function Banner() {
                 Here's what we found
             </Heading>
             <Paragraph size="2" css={{ ta: "center" }}>
-                We checked through the job listing.
+                We checked through the job listing and found these keywords. Based on our analysis, it will be important to reference these items in your resume if they fit your skillset. 
             </Paragraph>
         </Container>
     </Section>

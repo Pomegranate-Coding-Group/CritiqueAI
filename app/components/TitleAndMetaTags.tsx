@@ -14,7 +14,7 @@ export function TitleAndMetaTags({
   title = 'Resume Quest',
   description = 'We\'ll help you refine and tailor your resume.',
   image,
-  url = 'https://critique-ai.com',
+  url = 'https://critique-ai.com', //TODO
   pathname,
 }: TitleAndMetaTagsProps) {
   const router = useRouter();

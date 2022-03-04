@@ -17,13 +17,13 @@ export default function InputData ({loading, getData}) {
         setPageError('Please enter a job descirption and select an inudstry');
         return;
         }
-        getData();
+        getData(jobDescriptionText, industry);
     }
     return (
         <Box css={{ mt: "2em" }}>
         <Container size="1" style={{ marginTop: "50px", marginBottom: "50px" }}>
           <Banner>
-            <Text size='7'>CritiqueAI</Text>
+            <Text size='7'>Resume Quest</Text>
           </Banner>
         </Container>
         <Container size="4">
