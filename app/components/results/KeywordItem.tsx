@@ -11,10 +11,12 @@ import {
   Badge,
   Tooltip,
   VerifiedBadge,
+  Button,
 } from "@components/common";
 import { VariantProps } from "@stitches-config";
 import { IoCloseOutline } from "react-icons/io5";
 import type * as Stitches from "@stitches/react";
+import Link from "next/link";
 
 type BannerVariant = Stitches.VariantProps<typeof Badge>["variant"];
 
@@ -22,6 +24,7 @@ interface KeywordData {
   name: string;
   priority: number;
   description: string;
+  link?: string;
   verified?: boolean;
   tags?: string[];
 }
@@ -86,26 +89,32 @@ export function KeywordItem({
   description,
   verified,
   tags,
+  link
 }: KeywordData) {
   const tagComponents =
     tags !== undefined
       ? tags.map((value, index) => {
-          return <TagItem {...tagColors[value]} />;
-        })
+        return <TagItem {...tagColors[value]} />;
+      })
       : undefined;
   return (
     <Box css={{ width: 300 }}>
       <Card css={{ p: "$3" }}>
-        <Flex justify={"between"}>
+        <Flex justify={"between"} align={"center"}>
           <Heading
             css={{ mb: "$2", display: "inline-flex", alignItems: "center" }}
           >
             {name}
             {verified && <VerifiedTag />}
           </Heading>
-          <IconButton>
-            <IoCloseOutline />
-          </IconButton>
+
+          <Flex gap={"1"}>
+            {link && <Link href={link} >Learn More</Link>}
+
+            <IconButton>
+              <IoCloseOutline />
+            </IconButton>
+          </Flex>
         </Flex>
         <Text size="3" variant={"gray"} css={{ lineHeight: "23px", mb: "$2" }}>
           {description}
