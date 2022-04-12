@@ -1,25 +1,25 @@
 CREATE TABLE Keyword(
 	KeywordID INT IDENTITY(1,1) PRIMARY KEY ,
-	KeyName VARCHAR(64),
-	KeyDesc VARCHAR(2048)
+	KeyName VARCHAR(64) NOT NULL,
+	KeyDesc VARCHAR(2048),
 	KeyLink VARCHAR(2048),
 	KeywordTypeID INT FOREIGN KEY REFERENCES Keyword_Type(KeywordTypeID)
 )
 
 CREATE TABLE Keyword_Industry(
 	KeywordIndustryID INT IDENTITY(1,1) PRIMARY KEY,
-	IndustryID INT,
-	KeywordID INT
+	IndustryID INT NOT NULL,
+	KeywordID INT NOT NULL
 )
 
 CREATE TABLE Keyword_Type(
 	KeywordTypeID INT IDENTITY(1,1) PRIMARY KEY,
-	KeyTypeName VARCHAR(64),
+	KeyTypeName VARCHAR(64) NOT NULL,
 	KeyTypeDesc VARCHAR(2048)
 )
 
 CREATE TABLE Industry(
 	IndustryID INT IDENTITY(1,1) PRIMARY KEY,
-	IndustryName VARCHAR(64),
+	IndustryName VARCHAR(64) NOT NULL,
 	IndustryDesc VARCHAR(2048)
 )
