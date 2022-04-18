@@ -26,16 +26,14 @@ export const InputData = ({ loading, getData }: InputDataProps) => {
   }
   return (
     <Box css={{ mt: "2em" }}>
-      <Container size="1" style={{ marginTop: "50px", marginBottom: "50px" }}>
-        <Banner>
-          <Text size='7'>Resume Quest</Text>
-        </Banner>
+      <Container size="2" style={{ marginTop: "50px", marginBottom: "50px" , textAlign: "center" }}>
+          <Text style={{color: 'white', fontSize: '45px'}}>Tailor your resume for each company you apply to</Text>
       </Container>
       <Container size="4">
         <Flex direction="column" >
 
           <Flex gap="2" justify="center">
-            <textarea placeholder="Enter job description..." value={jobDescriptionText} onChange={(e) => handleJobDescriptionChange(e)} style={{ width: '500px', height: "200px" }} />
+            <textarea placeholder="Enter job description..." value={jobDescriptionText} onChange={(e) => handleJobDescriptionChange(e)} style={{ width: '500px', height: "200px", backgroundColor: 'white', border: 'none', borderRadius: '4px', padding: '10px 20px' }} />
           </Flex>
 
           <Flex direction="row" justify='center' align="center" gap="8">
@@ -48,9 +46,9 @@ export const InputData = ({ loading, getData }: InputDataProps) => {
                   <DefaultSelectItem value='ux' name='UX Design' />
                 </SelectGroup>
               } /> */}
-            <Button size='2' onClick={() => handleSubmit()}>
+            <Button size='2' onClick={() => handleSubmit()} style={{marginTop: '14px', marginLeft: '-25px'}}>
               {loading ? <ClipLoader size={20} /> : <></>}
-              <Text style={loading ? { marginLeft: '10px' } : {}}>Submit</Text>
+              <Text style={loading ? { marginLeft: '10px'} : {}}>Submit</Text>
             </Button>
           </Flex>
 

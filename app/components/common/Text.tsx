@@ -47,6 +47,9 @@ export const Text = styled('span', {
       },
     },
     variant: {
+      white: {
+        color: 'white',
+      },
       red: {
         color: '$red11',
       },

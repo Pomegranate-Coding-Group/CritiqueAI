@@ -205,6 +205,7 @@ export const {
     fonts: {
       untitled: 'Untitled Sans, -apple-system, system-ui, sans-serif',
       mono: 'Söhne Mono, menlo, monospace',
+      rowdies: 'Rowdies'
     },
     space: {
       1: '5px',
@@ -491,7 +492,7 @@ export const globalStyles = globalCss({
   body: {
     background: "$loContrast",
     margin: 0,
-    fontFamily: "$mono",
+    fontFamily: "$rowdies",
     fontSmooth: "antialiased",
     lineHeight: 1,
   },

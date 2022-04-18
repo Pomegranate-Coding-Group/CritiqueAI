@@ -39,7 +39,7 @@ export const AppBar = styled('div', {
         backgroundColor: '$loContrast',
       },
       plain: {
-        backgroundColor: '$gray2',
+        backgroundColor: 'transparent',
       },
       accent: {
         backgroundColor: '$blue9',

@@ -14,7 +14,7 @@ const AccordionChevron = styled(IoCaretDownSharp, {
 });
 const AccordionContainer = styled(Accordion.Item , {
     backgroundColor: '$loContrast',
-    width: '124px',
+    width: '240px',
 });
 const AccordionTrigger = styled(Accordion.Trigger , {
     display: 'flex',
@@ -23,9 +23,12 @@ const AccordionTrigger = styled(Accordion.Trigger , {
     alignItems: 'center',
     backgroundColor: '$loContrast',
     border: 'none',
-    width: '140px',
+    width: '240px',
     cursor: 'pointer',
     fontFamily: "$mono",
+    padding: '4px 10px',
+    marginTop:'10px',
+    marginBottom: '-15px',
 });
 const AccordionItem= styled(Accordion.Trigger , {
     display: 'flex',
@@ -36,12 +39,11 @@ const AccordionItem= styled(Accordion.Trigger , {
     border: 'none',
     marginBottom: '0px',
     cursor: 'pointer',
-    padding: '12px 0px 12px 0px',
+    padding: '10px 10px',
     borderTop: '1px solid #D9D9D9',
-    width: '140px',
+    width: '240px',
     textAlign: 'left',
     fontFamily: "$mono",
-
     '&:hover': {
         backgroundColor: '$gray3',
     }
