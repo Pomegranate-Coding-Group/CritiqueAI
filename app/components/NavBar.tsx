@@ -8,6 +8,10 @@ import {
 } from "@components/common";
 import { DarkThemeButton } from "./DarkThemeButton";
 
+// ✅ TODO: add third blue pannel to the logo
+// TODO: standardize the font 
+// ✅ TODO: create tags for the UX Design search in the spreadsheet
+// TODO: fix the grey text clor for the banner in the results page
 export default function NavBar({ }) {
   return (
     <nav>
