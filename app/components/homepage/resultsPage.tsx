@@ -27,12 +27,12 @@ export const ResultsPage = ({ dataRetrieved }: ResultsPageProps) => {
                         <Separator size="2" />
                     </Flex>
                     <Section size="3">
-                        <Container size="3">
-                            <Heading size="3" css={{ ta: "center", mb: "$3" }}>
+                        <Container size="3" style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center"}}>
+                            <Heading size="3" css={{ ta: "center", mb: "$3", fontFamily: '$rowdies', color: '#001E75', letterSpacing: '1px'}}>
                                 Keywords
                             </Heading>
                             <TooltipProvider delayDuration={100}>
-                                <Flex gap="3" wrap="wrap">
+                                <Flex gap="3" wrap="wrap" style={{maxWidth: '930px'}}>
                                     <KeywordItem name="Java" priority={1}
                                         description="General-purpose, multi-paradigm programming language."
                                         verified tags={["common"]}

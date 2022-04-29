@@ -6,13 +6,12 @@ import {
   SkipToMainContent,
   Container,
 } from "@components/common";
+import { useRouter } from 'next/router'
+
 // import { DarkThemeButton } from "./DarkThemeButton";
 
-// ✅ TODO: add third blue pannel to the logo
-// TODO: standardize the font 
-// ✅ TODO: create tags for the UX Design search in the spreadsheet
-// TODO: fix the grey text clor for the banner in the results page
 export default function NavBar({ }) {
+  const router = useRouter()
   return (
     <nav>
       <SkipToMainContent />
@@ -20,7 +19,9 @@ export default function NavBar({ }) {
         <Container size="3">
           <Flex justify="between" align="center">
             <Flex gap="4" align="center">
-              <img src='Logo.svg'/>
+              <span onClick={() => {router.push('/'); window.location.reload();}}>
+                <img src='Logo.svg'/>
+              </span>
             </Flex>
             <Flex gap="4" align="center">
               <Link href="/privacy-policy">
