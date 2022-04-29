@@ -6,7 +6,7 @@ import {
   SkipToMainContent,
   Container,
 } from "@components/common";
-import { DarkThemeButton } from "./DarkThemeButton";
+// import { DarkThemeButton } from "./DarkThemeButton";
 
 export default function NavBar({ }) {
   return (
@@ -28,7 +28,7 @@ export default function NavBar({ }) {
               <Link href="/resources">
                 <Text variant="white">Resources</Text>
               </Link>
-              <DarkThemeButton />
+              {/* <DarkThemeButton /> */}
             </Flex>
           </Flex>
         </Container>
