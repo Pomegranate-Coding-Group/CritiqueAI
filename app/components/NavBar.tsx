@@ -6,7 +6,7 @@ import {
   SkipToMainContent,
   Container,
 } from "@components/common";
-import { DarkThemeButton } from "./DarkThemeButton";
+// import { DarkThemeButton } from "./DarkThemeButton";
 
 // ✅ TODO: add third blue pannel to the logo
 // TODO: standardize the font 
@@ -32,7 +32,7 @@ export default function NavBar({ }) {
               <Link href="/resources">
                 <Text variant="white">Resources</Text>
               </Link>
-              <DarkThemeButton />
+              {/* <DarkThemeButton /> */}
             </Flex>
           </Flex>
         </Container>
