@@ -46,7 +46,8 @@ const Home: NextPage = () => {
     }
 
   return (
-    <>
+    <div style={{minHeight: '100vh', 
+                  backgroundImage: 'linear-gradient(217deg, rgba(129,162,255,.9), rgba(200,209,255,0.9) 100%)'}}>
       <TitleAndMetaTags />
       <NavBar />
       {!dataRetrieved && (
@@ -55,7 +56,7 @@ const Home: NextPage = () => {
       {dataRetrieved && (
         <ResultsPage dataRetrieved={dataRetrieved} />
       )}
-    </>
+    </div>
   )
 }
 
