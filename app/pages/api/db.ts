@@ -15,13 +15,17 @@ const sqlConfig = {
         min: 0,
         idleTimeoutMillis: 30000
     },
+    options: {
+        encrypt: true,
+        trustServerCertificate: true
+    }
 }
 
 // When fully implementing, switch to taking a parameter for industry. This is just for testing
 export default async function openConnection() {
     try {
         await sql.connect(sqlConfig)
-        const result = await sql.query`select * from Keyword` // SAMPLE QUERY
+        const result = await sql.query`select * from Industry` // SAMPLE QUERY
         console.log(result)
         return result
     } catch (err) {
