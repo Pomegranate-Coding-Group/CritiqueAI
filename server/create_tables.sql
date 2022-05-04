@@ -1,10 +1,18 @@
 USE ResumeQuestDB
 
-CREATE TABLE tblKEYWORD_TYPE(
-	KeywordTypeID INT IDENTITY(1,1) PRIMARY KEY,
-	KeyTypeName VARCHAR(64) NOT NULL,
-	KeyTypeDesc VARCHAR(2048)
-)
+DROP PROCEDURE IF EXISTS [dbo].[GetIndustryID];
+DROP PROCEDURE IF EXISTS [dbo].[GetKeywordID];
+DROP PROCEDURE IF EXISTS [dbo].[GetKeywordIndustryID];
+DROP PROCEDURE IF EXISTS [dbo].[GetKeywordTypeID];
+DROP PROCEDURE IF EXISTS [dbo].[AddKeywordType];
+DROP PROCEDURE IF EXISTS [dbo].[AddKeyword];
+DROP PROCEDURE IF EXISTS [dbo].[AddIndustry];
+DROP PROCEDURE IF EXISTS [dbo].[AddKeywordIndustry];
+
+DROP TABLE IF EXISTS tblKEYWORD_TYPE
+DROP TABLE IF EXISTS tblKEYWORD_INDUSTRY
+DROP TABLE IF EXISTS tblKEYWORD
+DROP TABLE IF EXISTS tblINDUSTRY
 
 CREATE TABLE tblINDUSTRY(
 	IndustryID INT IDENTITY(1,1) PRIMARY KEY,
@@ -16,9 +24,15 @@ CREATE TABLE tblKEYWORD(
 	KeywordID INT IDENTITY(1,1) PRIMARY KEY ,
 	KeyName VARCHAR(64) NOT NULL,
 	KeyDesc VARCHAR(2048),
-	KeyLink VARCHAR(2048),
-	KeywordTypeID INT FOREIGN KEY REFERENCES tblKEYWORD_TYPE(KeywordTypeID) NOT NULL
+	KeyLink VARCHAR(2048)
 )
+
+CREATE TABLE tblKEYWORD_TYPE(
+	KeywordTypeID INT IDENTITY(1,1) PRIMARY KEY,
+	KeyTypeName VARCHAR(64) NOT NULL,
+	KeywordID INT FOREIGN KEY REFERENCES tblKEYWORD(KeywordID) NOT NULL
+)
+
 
 CREATE TABLE tblKEYWORD_INDUSTRY(
 	KeywordIndustryID INT IDENTITY(1,1) PRIMARY KEY,
@@ -74,52 +88,27 @@ GO
 
 CREATE PROCEDURE AddKeywordType
 @NewKTName VARCHAR(64),
-@NewKTDesc VARCHAR(2048)
+@RefKName VARCHAR(64)
 AS
-INSERT INTO tblKEYWORD_TYPE(KeyTypeName, KeyTypeDesc)
-VALUES(@NewKTName, @NewKTDesc)
+DECLARE @RefKID INT
 
-GO
-
-CREATE PROCEDURE AddKeyword
-@NewKeyName VARCHAR(64),
-@NewKeyDesc VARCHAR(2048),
-@NewKeyLink VARCHAR(2048),
-@NewKeyTypeName VARCHAR(64)
-AS
-DECLARE @NewKeyTypeID INT
-
-EXEC GetKeywordTypeID
-@KTName = @NewKeyTypeName,
-@KTID = @NewKeyTypeID
-
-IF @NewKeyTypeID IS NULL
-BEGIN
-	EXEC AddKeywordType
-	@NewKTName = @NewKeyTypeName,
-	@NewKTDesc = NULL
-
-	SET @NewKeyTypeID = (SELECT SCOPE_IDENTITY())
-	BEGIN TRAN T1
-		INSERT INTO tblKEYWORD(KeyName, KeyDesc, KeyLink, KeywordTypeID)
-		VALUES(@NewKeyName, @NewKeyDesc, @NewKeyLink, @NewKeyTypeID)
-	IF @@Error <> 0
+EXEC GetKeywordID 
+@KName = @RefKName,
+@KID = @RefKID
+IF @NewKTName IS NULL
+	BEGIN
+		PRINT 'Null kt name. ignoring'
+	END
+ELSE
+	IF @RefKID IS NULL
 		BEGIN
-			PRINT '@@ERROR is showing an error somewhere... terminating process'
-			ROLLBACK TRANSACTION T2
+			PRINT 'Couldnt find KID '
 		END
 	ELSE
-	COMMIT TRANSACTION T1
-END
-
-GO
-
-CREATE PROCEDURE AddIndustry
-@NewIndustryName VARCHAR(64),
-@NewIndustryDesc VARCHAR(2048)
-AS
-INSERT INTO tblINDUSTRY(IndustryName, IndustryDesc)
-VALUES(@NewIndustryName, @NewIndustryDesc)
+		BEGIN
+			INSERT INTO tblKEYWORD_TYPE(KeyTypeName, KeywordID)
+			VALUES(@NewKTName, @RefKID)
+		END
 
 GO
 
@@ -138,25 +127,10 @@ EXEC GetIndustryID
 @IName = @NewIName,
 @IID = @NewIID
 
-IF @NewIID IS NULL
+IF @NewIID IS NULL OR @NewKID IS NULL
 BEGIN
-	PRINT 'Invalid industry name';
-	THROW 50001, 'Couldnt find industry', 1;
+	PRINT 'Null values... ignoring'
 END
-IF @NewKID IS NULL
-BEGIN
-	PRINT 'Invalid keyword name';
-	THROW 50001, 'Couldnt keyword industry', 1;
-END
-
-
-BEGIN TRANSACTION T2
-INSERT INTO tblKEYWORD_INDUSTRY(IndustryID, KeywordID, Importance)
-VALUES(@NewIID, @NewKID, @KImportance)
-IF @@Error <> 0
-    BEGIN
-        PRINT '@@ERROR is showing an error somewhere... terminating process'
-        ROLLBACK TRANSACTION T2
-    END
 ELSE
-COMMIT TRANSACTION T2
+	INSERT INTO tblKEYWORD_INDUSTRY(IndustryID, KeywordID, Importance)
+	VALUES(@NewIID, @NewKID, @KImportance)
