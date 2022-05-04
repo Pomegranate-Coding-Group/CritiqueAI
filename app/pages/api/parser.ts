@@ -19,23 +19,6 @@ export default async function handler(
 ) {
   await dbConnect();
 
-  // if (req.method !== 'POST') {
-  //     res.status(400).send({ message: 'Unsupported method. Only post requests are supported'})
-  //     console.log("Exit due to user 400 error")
-  //     return
-  // }
-  // if (req.headers['content-type'] !== 'application/json') {
-  //     res.status(400).send({ message: 'Something went wrong with POST request, please ensure content type header is application/json'})
-  //     console.log("Exit due to user 400 error")
-  //     return
-  // }
-
-  // try {
-  //     keywords = await queryDB(industry)
-  // } catch (err) {
-  //     res.status(500).send({ message: 'Internal server error occured'})
-  // }
-
   let industry: string = req.body.industry;
   let text: string = req.body.text?.toLowerCase();
 
@@ -47,7 +30,9 @@ export default async function handler(
     case "POST":
       try {
         // find keywords with
+        // @ts-ignore
         keywords = await keyModel.find({ industry: industry });
+        // @ts-ignore
         tags = await tagModel.find({});
         let filteredKeywords = keywords;
         if (keywords) {

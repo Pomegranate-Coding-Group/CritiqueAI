@@ -44,7 +44,7 @@ export default function Results() {
                             </Heading>
                             <TooltipProvider delayDuration={100}>
                                 <Flex gap="3">
-                                    <KeywordItem name="C#" importance={1} desc="General-purpose, multi-paradigm programming language." verified tags={["common"]} />
+                                    <KeywordItem name="C#" importance={1} desc="General-purpose, multi-paradigm programming language."/>
                                     <KeywordItem name="Agile Development" importance={2} desc="Iterative approach to project management and software development." />
                                     <KeywordItem name="C++" importance={2} desc="General-purpose programming language" />
                                 </Flex>
