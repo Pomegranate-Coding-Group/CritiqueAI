@@ -23,7 +23,7 @@ interface ResultsPageProps {
 
 export const ResultsPage = ({ success, keywords, tags }: ResultsPageProps) => {
     const keywordData = keywords.map((val, i) => {
-      const keyTags = tags.filter((x) => x.name in val.tags);
+      const keyTags = tags.filter((x) => val.tags.includes(x.name));
       return (
         <KeywordItem
           key={val.name}
