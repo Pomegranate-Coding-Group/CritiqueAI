@@ -109,14 +109,13 @@ export function KeywordItem({
           </Heading>
 
           <Flex gap={"1"}>
-            {link && <Link href={link} >Learn More</Link>}
-
-            <IconButton>
+            {link && <Link href={link} style={{fontWeight: "300", marginTop: '-2px', marginRight: '5px'}}>Learn More</Link>}
+            {/* <IconButton>
               <IoCloseOutline />
-            </IconButton>
+            </IconButton> */}
           </Flex>
         </Flex>
-        <Text size="3" variant={"gray"} css={{ lineHeight: "23px", mb: "$2" }}>
+        <Text size="2" variant={"gray"} css={{ lineHeight: "23px", mb: "$2", fontFamily: '$mono' }}>
           {description}
         </Text>
         <Flex gap={"2"}>{tagComponents}</Flex>
