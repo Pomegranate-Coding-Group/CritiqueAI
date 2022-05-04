@@ -6,7 +6,7 @@ const keywordSchema = new mongoose.Schema({
     KeyLink: String,
     Tags: Array,
     Industry: String
-})
-console.log('mongoose models created')
-
-module.exports = mongoose.models.Keyword || mongoose.model('Keyword', keywordSchema)
+});
+console.log('mongoose models created');
+let a = mongoose.models.Keyword || mongoose.model('Keyword', keywordSchema);
+export default a;
