@@ -1,6 +1,16 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import queryDB, { KeywordResult } from './db';
 
+/**
+ * Represents a job listing supplied by a user.
+ * Ideally this would be the obj structure coming from frontend request
+ */
+ export interface JobListing {
+    industry: string;
+    title: string;
+    text: string;
+}
+
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method !== 'POST') {
         res.status(400).send({ message: 'Unsupported method. Only post requests are supported'})

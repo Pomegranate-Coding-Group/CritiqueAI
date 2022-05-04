@@ -30,7 +30,7 @@ const Home: NextPage = () => {
     }
 
     // Colins functions here
-    const url = "http://localhost:3000" // TODO change to env var when deploy to vercel
+    const url = "http://resumequest.careers" // TODO change to env var when deploy to vercel
     axios.post(url + "/api/parser", request)
     .then(function (response) {
         console.log(response)
@@ -46,7 +46,7 @@ const Home: NextPage = () => {
     }
 
   return (
-    <div style={{minHeight: '100vh', 
+    <div style={{minHeight: '100vh',
                   backgroundImage: 'linear-gradient(217deg, rgba(129,162,255,.9), rgba(200,209,255,0.9) 100%)'}}>
       <TitleAndMetaTags />
       <NavBar />
