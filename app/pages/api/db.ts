@@ -37,15 +37,18 @@ const sqlConfig = {
     }
 }
 
-// When fully implementing, switch to taking a parameter for industry. This is just for testing
-export default async function openConnection() {
+
+export default async function queryDB(industry: string) {
     try {
-        await sql.connect(sqlConfig)
-        const result = await sql.query`select * from Industry` // SAMPLE QUERY
-        console.log(result)
+        let pool = await sql.connect(sqlConfig)
+        let result = await pool.request()
+            .input('industry_input', sql.NVarChar, industry)
+            .query('SELECT * FROM Keyword WHERE Industry1 = @industry_input')
+        console.log(result) // TODO rm debug line
         return result
     } catch (err) {
         console.error("Error connecting to database.", err)
+        throw new Error('Internal DB Server Error')
     }
 }
 
