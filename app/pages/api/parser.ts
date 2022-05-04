@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-const words = require('./wordBank.json')
+import openConnection from './db';
+// const words = require('./wordBank.json')
 const extractor = require("keyword-extractor")
 
 /**
@@ -104,7 +105,7 @@ export function getKeywords(text: string, keywords: string[]): Map<string, numbe
 /**
  * API ROUTING
  */
-function handler(req: NextApiRequest, res: NextApiResponse) {
+async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method !== 'POST') {
         res.status(400).send({ message: 'Unsupported method. Only post requests are supported'})
         return
@@ -119,16 +120,14 @@ function handler(req: NextApiRequest, res: NextApiResponse) {
     const listingText: string = req.body.text
     // const input: Joblisting = JSON.parse(req.body) // Use this if api bodyParser: false
 
-    const wordBank = getWordBank(words, industry, title)
-
-
-    const keywordMap: Map<string, number> = getKeywords(listingText, wordBank)
-    const keywordResp: KeywordsResponse = {
-        keywords: Array.from(keywordMap.keys()),
-        frequencies: Array.from(keywordMap.values())
-    }
-
-    console.log(keywordResp)
-    res.status(200).json(keywordResp)
+    // const wordBank = getWordBank(words, industry, title)
+    // const keywordMap: Map<string, number> = getKeywords(listingText, wordBank)
+    // const keywordResp: KeywordsResponse = {
+    //     keywords: Array.from(keywordMap.keys()),
+    //     frequencies: Array.from(keywordMap.values())
+    // }
+    // console.log(keywordResp)
+    let resp = await openConnection()
+    res.status(200).json(resp)
 }
 export default handler
