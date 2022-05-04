@@ -37,18 +37,26 @@ const sqlConfig = {
     }
 }
 
+if(!sqlConfig.user || !sqlConfig.password || !sqlConfig.database || !sqlConfig.server){
+    throw new Error(`missing 1+ required environment database vars. 
+        DB_USER: ${sqlConfig.user},
+        DB_PWD: ${sqlConfig.password}, 
+        DB_NAME: ${sqlConfig.database}, 
+        DB_ADDR: ${sqlConfig.server}`);
+}
+
 
 export default async function queryDB(industry: string) {
     try {
-        let pool = await sql.connect(sqlConfig)
+        let pool = await sql.connect(sqlConfig);
         let result = await pool.request()
             .input('industry_input', sql.NVarChar, industry)
-            .query('SELECT * FROM Keyword WHERE Industry1 = @industry_input')
-        console.log(result) // TODO rm debug line
-        return result
+            .query('SELECT * FROM tblINDUSTRY WHERE IndustryName = @industry_input');
+        console.log(result); // TODO rm debug line
+        return result;
     } catch (err) {
-        console.error("Error connecting to database.", err)
-        throw new Error('Internal DB Server Error')
+        console.error("Error connecting to database.", err);
+        throw new Error('Internal DB Server Error');
     }
 }
 
