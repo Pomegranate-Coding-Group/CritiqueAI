@@ -12,12 +12,29 @@ import {
 import { TitleAndMetaTags } from "@components/TitleAndMetaTags";
 import { Banner, KeywordItem } from "@components/results/";
 import { TooltipProvider } from "@components/common/TooltipProvider";
+import { IKeyword } from "models/keyword";
+import { ITag } from "models/tag";
 
 interface ResultsPageProps {
-    dataRetrieved: any;
+    success: boolean;
+    keywords: IKeyword[];
+    tags: ITag[];
 }
 
-export const ResultsPage = ({ dataRetrieved }: ResultsPageProps) => {
+export const ResultsPage = ({ success, keywords, tags }: ResultsPageProps) => {
+    const keywordData = keywords.map((val, i) => {
+      const keyTags = tags.filter((x) => x.name in val.tags);
+      return (
+        <KeywordItem
+          key={val.name}
+          name={val.name}
+          importance={val.importance}
+          desc={val.desc}
+          link={val.link}
+          tags={keyTags}
+        />
+      );
+    });
     return (
         <>
             <Box>
@@ -33,14 +50,7 @@ export const ResultsPage = ({ dataRetrieved }: ResultsPageProps) => {
                             </Heading>
                             <TooltipProvider delayDuration={100}>
                                 <Flex gap="3" wrap="wrap" style={{maxWidth: '930px'}}>
-                                    <KeywordItem name="Java" priority={1}
-                                        description="General-purpose, multi-paradigm programming language."
-                                        verified tags={["common"]}
-                                        link="https://en.wikipedia.org/wiki/Java_(programming_language)" />
-                                    <KeywordItem name="Agile Development" priority={2} description="Iterative approach to project management and software development." />
-                                    <KeywordItem name="Git" priority={2} description="Common version control tool used in larger projects" />
-                                    <KeywordItem name="Azure" priority={2} description="A large scale cloud service from Microsoft, frequently used in industry" />
-                                    <KeywordItem name="SQL" priority={2} description="A basic query language used in many relational databases" verified tags={["common"]} />
+                                    {keywordData}
                                 </Flex>
                             </TooltipProvider>
                         </Container>

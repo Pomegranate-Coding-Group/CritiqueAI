@@ -31,11 +31,10 @@ const Home: NextPage = () => {
 
     // Colins functions here
     const url = "http://resumequest.careers" // TODO change to env var when deploy to vercel
-    axios.post(url + "/api/parser", request)
+    axios.post("/api/parser", request)
     .then(function (response) {
-        console.log(response)
-        setLoading(false)
-        setDataRetrieved("true")
+        setLoading(false);
+        setDataRetrieved(response.data);
     })
     .catch(function (error) {
         console.log("ERROR AXIOS FAILURE?", error)
@@ -54,7 +53,7 @@ const Home: NextPage = () => {
         <InputData loading={loading} getData={getData}/>
       )}
       {dataRetrieved && (
-        <ResultsPage dataRetrieved={dataRetrieved} />
+        <ResultsPage {...dataRetrieved} />
       )}
     </div>
   )

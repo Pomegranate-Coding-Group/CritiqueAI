@@ -1,12 +1,21 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
-const keywordSchema = new mongoose.Schema({
-    KeyName: String,
-    KeyDesc: String,
-    KeyLink: String,
-    Tags: Array,
-    Industry: String
+export interface IKeyword {
+  name: string;
+  desc?: string;
+  link?: string;
+  tags?: string[];
+  industry?: string[];
+  importance: number;
+}
+
+const keywordSchema = new mongoose.Schema<IKeyword>({
+  name: { type: String, required: true },
+  desc: String,
+  link: String,
+  tags: Array,
+  industry: String,
+  importance: Number,
 });
-console.log('mongoose models created');
-let a = mongoose.models.Keyword || mongoose.model('Keyword', keywordSchema);
-export default a;
+
+export const keyModel = mongoose.models?.Keyword || mongoose.model("Keyword", keywordSchema);

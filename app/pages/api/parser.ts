@@ -1,8 +1,8 @@
-import type { NextApiRequest, NextApiResponse } from 'next'
+import type { NextApiRequest, NextApiResponse } from "next";
 
-import dbConnect from '../../lib/dbConnect';
-import Keyword from '../../models/Keyword';
-
+import dbConnect from "lib/dbConnect";
+import { IKeyword, keyModel } from "models/keyword";
+import { ITag, tagModel } from "models/tag";
 /**
  * Represents a job listing supplied by a user.
  * Ideally this would be the obj structure coming from frontend request
@@ -13,8 +13,11 @@ export interface JobListing {
   text: string;
 }
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  await dbConnect()
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
+  await dbConnect();
 
   // if (req.method !== 'POST') {
   //     res.status(400).send({ message: 'Unsupported method. Only post requests are supported'})
@@ -33,41 +36,47 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   //     res.status(500).send({ message: 'Internal server error occured'})
   // }
 
+  let industry: string = req.body.industry;
+  let text: string = req.body.text?.toLowerCase();
 
-
-
-  let industry: string = req.body.industry
-  let text: string = req.body.text
-
-  let keywords: Keyword[] = []
-
-
-  const { method } = req
+  let keywords: IKeyword[] = [];
+  let tags: ITag[] = [];
+  const { method } = req;
 
   switch (method) {
-    case 'POST':
+    case "POST":
       try {
         // find keywords with
-        keywords = await Keyword.find({ Industry: industry })
+        keywords = await keyModel.find({ industry: industry });
+        tags = await tagModel.find({});
         let filteredKeywords = keywords;
-        if (text) {
-
-          // filter down to only keywords found in input text. this may get a bit slow if big dataset but should do for now
-          filteredKeywords = keywords.filter(keyword => text.toLowerCase().includes(keyword.KeyName.toLowerCase()))
-          filteredKeywords.sort((a, b) => b.Importance - a.Importance) // Organize by importance descending (bigger is better)
+        if (keywords) {
+          console.log(`Found ${keywords.length} keywords`);
+          if (text) {
+            // filter down to only keywords found in input text. this may get a bit slow if big dataset but should do for now
+            filteredKeywords = keywords.filter((k) =>
+              text.includes(k.name.toLowerCase())
+            );
+            filteredKeywords.sort((a, b) => b.importance - a.importance); // Organize by importance descending (bigger is better)
+          }
+        } else {
+          console.log("Coudn't find any keywords!");
         }
 
-        res.status(200).json({ success: true, data: filteredKeywords })
+        res.status(200).json({ success: true, keywords: filteredKeywords, tags: tags });
       } catch (error: any) {
-        console.log(error)
-        res.status(400).json({ success: false, error: error.message })
+        console.log(error);
+        res.status(400).json({ success: false, error: error.message });
       }
-      break
-    case 'GET':
-      res.status(400).json({ success: false, error: "Unsupported method. Only post requests are supported" });
-      break
+      break;
+    case "GET":
+      res.status(400).json({
+        success: false,
+        error: "Unsupported method. Only post requests are supported",
+      });
+      break;
     default:
-      res.status(400).json({ success: false })
-      break
+      res.status(400).json({ success: false });
+      break;
   }
 }

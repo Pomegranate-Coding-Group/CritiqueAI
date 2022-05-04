@@ -13,7 +13,6 @@ export const InputData = ({ loading, getData }: InputDataProps) => {
   const [pageError, setPageError] = useState(null);
 
   const handleJobDescriptionChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
-    console.log(e.target.value);
     setJobDescriptionText(e.target.value);
   }
 
