@@ -5,9 +5,6 @@ import { ThemeProvider } from 'next-themes';
 function MyApp({ Component, pageProps }: AppProps) {
   globalStyles();
   return <ThemeProvider
-    disableTransitionOnChange
-    attribute="class"
-    value={{ light: 'light-theme'}}
   >
     <Component {...pageProps} />
   </ThemeProvider>
