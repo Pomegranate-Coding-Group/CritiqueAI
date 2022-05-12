@@ -18,7 +18,7 @@ export const InputData = ({ loading, getData }: InputDataProps) => {
 
   const handleSubmit = () => {
     if (industry == 'Industry' || !jobDescriptionText) {
-      setPageError('Please enter a job descirption and select an inudstry');
+      setPageError('Please enter a job description and select an inudstry');
       return;
     }
     getData(jobDescriptionText, industry);
@@ -32,7 +32,7 @@ export const InputData = ({ loading, getData }: InputDataProps) => {
         <Flex direction="column" >
 
           <Flex gap="2" justify="center">
-            <textarea placeholder="Enter job description..." value={jobDescriptionText} onChange={(e) => handleJobDescriptionChange(e)} style={{ width: '500px', height: "200px", backgroundColor: 'white', border: 'none', borderRadius: '4px', padding: '10px 20px' }} />
+            <textarea placeholder="Enter job description..." value={jobDescriptionText} onChange={(e) => handleJobDescriptionChange(e)} style={{ width: '500px', height: "200px", backgroundColor: 'white', border: 'none', borderRadius: '4px', padding: '10px 20px', color: 'black' }} />
           </Flex>
 
           <Flex direction="row" justify='center' align="center" gap="8">
@@ -55,6 +55,14 @@ export const InputData = ({ loading, getData }: InputDataProps) => {
         <ErrorPopup title="Error submitting job information" open={pageError} description={pageError} onOpenChange={(open) => {
           setPageError(null);
         }} />
+      </Container>
+      <Container size="2" style={{ marginTop: "50px", marginBottom: "50px" , textAlign: "center" }}>
+          <Text style={{color: '#001E75', fontSize: '35px'}}> Instructions &amp; Info </Text>
+          <Text style={{color: '#001E75', fontSize: '20px', paddingTop: '20px'}}>
+            To use this tool, find a job that you are interested in applying for.
+            Then select the job description text containing the preferred skills and qualifications for the job and paste it into the text box above.
+            Select the industry that the job is in, and hit submit to receive a list of the most important keywords found in the listing.
+          </Text>
       </Container>
     </Box>
   )

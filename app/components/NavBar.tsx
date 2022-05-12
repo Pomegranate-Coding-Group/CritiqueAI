@@ -19,21 +19,14 @@ export default function NavBar({ }) {
         <Container size="3">
           <Flex justify="between" align="center">
             <Flex gap="4" align="center">
-              <span onClick={() => {router.push('/'); window.location.reload();}}>
+              <span onClick={() => {router.push('/'); window.location = '/';}}>
                 <img src='Logo.svg'/>
               </span>
             </Flex>
             <Flex gap="4" align="center">
-              <Link href="/privacy-policy">
-                <Text variant="white">Privacy Policy</Text>
+              <Link href="/about">
+                <Text variant="white" size="6">About</Text>
               </Link>
-              <Link href="/jobs">
-                <Text variant="white">Jobs</Text>
-              </Link>
-              <Link href="/resources">
-                <Text variant="white">Resources</Text>
-              </Link>
-              {/* <DarkThemeButton /> */}
             </Flex>
           </Flex>
         </Container>

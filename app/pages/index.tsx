@@ -29,19 +29,14 @@ const Home: NextPage = () => {
         }
     }
 
-    // Colins functions here
-    const url = "http://resumequest.careers" // TODO change to env var when deploy to vercel
     axios.post("/api/parser", request)
     .then(function (response) {
         setLoading(false);
         setDataRetrieved(response.data);
-    })
+        })
     .catch(function (error) {
         console.log("ERROR AXIOS FAILURE?", error)
-    })
-
-    //on success
-      //set dataRetrieved
+        })
     }
 
   return (
