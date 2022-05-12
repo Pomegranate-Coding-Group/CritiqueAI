@@ -57,7 +57,7 @@ export const InputData = ({ loading, getData }: InputDataProps) => {
         }} />
       </Container>
       <Container size="2" style={{ marginTop: "50px", marginBottom: "50px" , textAlign: "center" }}>
-          <Text style={{color: '#001E75', fontSize: '35px'}}> Instructions &amp; Info </Text>
+          <Text style={{color: 'white', fontSize: '35px'}}> Instructions &amp; Info </Text>
           <Text style={{color: '#001E75', fontSize: '20px', paddingTop: '20px'}}>
             To use this tool, find a job that you are interested in applying for.
             Then select the job description text containing the preferred skills and qualifications for the job and paste it into the text box above.
