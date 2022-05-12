@@ -19,7 +19,7 @@ export default function NavBar({ }) {
         <Container size="3">
           <Flex justify="between" align="center">
             <Flex gap="4" align="center">
-              <span onClick={() => {router.push('/'); window.location = '/';}}>
+              <span onClick={() => {router.push('/'); window.location.href = '/';}}>
                 <img src='Logo.svg'/>
               </span>
             </Flex>

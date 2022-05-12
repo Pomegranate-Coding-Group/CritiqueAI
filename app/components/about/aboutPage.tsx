@@ -32,7 +32,7 @@ export function AboutPage() {
                 College Students have a difficult time choosing what to include in their resumes
                 11 million job openings but no one is applying
                 63% of recruiters want to receive resumes tailored to the open position but college students looking for
-                jobs in the fields don't have the proper elements in their resumes
+                jobs in the fields do not have the proper elements in their resumes
             </Paragraph>
             <Heading size="2" css={{ ta: "center", mb: "$3",  mt: "$6", fontFamily: '$rowdies', letterSpacing: '1px', color: '#001E75' }}>
                 Our Solution
