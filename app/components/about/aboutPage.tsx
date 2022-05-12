@@ -23,16 +23,15 @@ export function AboutPage() {
                 ResumeQuest was created to be a fun professional development platform meant for college
                 students looking for their first job opportunities post-college graduation and who need help
                 improving the quality of professional documents such as resumes and cover letters, so they can
-                feel more confident when applying to their first jobs
+                feel more confident when applying to their first jobs.
             </Paragraph>
             <Heading size="2" css={{ ta: "center", mb: "$3",  mt: "$6", fontFamily: '$rowdies', letterSpacing: '1px', color: 'white' }}>
                 The Problem
             </Heading>
             <Paragraph size="2" css={{ ta: "left", color: '#001E75', fontWeight: '300', letterSpacing: '1px'}}>
-                College Students have a difficult time choosing what to include in their resumes
-                11 million job openings but no one is applying
-                63% of recruiters want to receive resumes tailored to the open position but college students looking for
-                jobs in the fields do not have the proper elements in their resumes
+                {'\u2022'} College students have a difficult time choosing what to include in their resumes. <br /><br />
+                {'\u2022'} 11 million job openings but decreasing number of applications <br /><br />
+                {'\u2022'} 63% of recruiters want to receive resumes tailored to the open position but college students looking for jobs do not have the proper terms in their resumes.
             </Paragraph>
             <Heading size="2" css={{ ta: "center", mb: "$3",  mt: "$6", fontFamily: '$rowdies', letterSpacing: '1px', color: 'white' }}>
                 Our Solution
