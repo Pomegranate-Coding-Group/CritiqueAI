@@ -16,12 +16,12 @@
     width: auto;
     margin-top: 40px;
   }
-  body {
+  /* body {
     background-color: #7FBCF5;
     color: white;
     font-family: 'Rowdies', cursive;
     text-align: center;
-  }
+  } */
 
   .headers {
     text-align: left;
@@ -44,9 +44,9 @@
     width: auto;
     margin-top: 40px;
   }
-  a {
+  /* a {
     color: white;
-  }
+  } */
   .ilogo {
     height: 50px;
     width: auto;
@@ -67,18 +67,18 @@
       justify-content: space-between;
     }
 
-  p, li {
+  /* p, li {
     text-align: left;
     margin-left: 5rem;
     font-size: 25px;
-  }
+  } */
 
-  h3 {
+  /* h3 {
     font-size: 23px;
-  }
-  section {
+  } */
+  /* section {
     margin: 3rem;
-  }
+  } */
 
   .container {
     text-align: left;
