@@ -1,0 +1,86 @@
+.card_container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 16rem));
+    gap:2rem;
+    justify-content: center;
+  }
+
+  .emph {
+    font-size: 30px;
+    text-decoration: underline;
+  }
+
+
+  .logo {
+    height: 100px;
+    width: auto;
+    margin-top: 40px;
+  }
+  body {
+    background-color: #7FBCF5;
+    color: white;
+    font-family: 'Rowdies', cursive;
+    text-align: center;
+  }
+
+  .headers {
+    text-align: left;
+    margin: 2rem;
+  }
+  .card_title{
+    margin-bottom: .5rem;
+    color: white;
+
+  }
+
+  .image-txt-container {
+    display:flex;
+    align-items:center;
+    flex-direction: row;
+  }
+
+  .side {
+    height: 12rem;
+    width: auto;
+    margin-top: 40px;
+  }
+  a {
+    color: white;
+  }
+  .ilogo {
+    height: 50px;
+    width: auto;
+  }
+
+  .headers-link {
+    text-align: center;
+  }
+
+  .circular--portrait {
+      position: relative; width: 200px; height: 200px; overflow: hidden; border-radius: 50%;
+      margin-top: 40px;
+      overflow: hidden;
+      border-bottom: 2rem;
+      border-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+  p, li {
+    text-align: left;
+    margin-left: 5rem;
+    font-size: 25px;
+  }
+
+  h3 {
+    font-size: 23px;
+  }
+  section {
+    margin: 3rem;
+  }
+
+  .container {
+    text-align: left;
+  }
+  .circular--portrait img { width: 100%; height: auto; }
