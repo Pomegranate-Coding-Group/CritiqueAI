@@ -1,6 +1,6 @@
 # API Route Docs
 
-## POST /keywords - Keyword Extraction
+## POST /parser - Keyword Extraction
 
 ### Request Format
 
@@ -8,7 +8,6 @@
 
     {
         industry: string
-        title: string
         text: string
     }
 `
@@ -18,7 +17,9 @@
 `
 
     {
+        success: boolean
         keywords: string[]
-        frequencies: number[]
+        tags: string[]
+        error?: string
     }
 `

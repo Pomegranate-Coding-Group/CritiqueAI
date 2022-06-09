@@ -21,6 +21,7 @@ CREATE TABLE [dbo].[tblKeywordPK](
 	[Industry2] [nvarchar](64) NULL
 ) ON [PRIMARY]
 GO
+
 -- make a copy without null values
 INSERT INTO tblKeywordPK(KeyName, KeyDesc, KeyLink, KeyTag1, KeyTag2, KeyTag3, KeyTag4, Industry1, Industry2)
 SELECT KeyName, KeyDesc, KeyLink, KeyTag1, KeyTag2, KeyTag3, KeyTag4, Industry1, Industry2
