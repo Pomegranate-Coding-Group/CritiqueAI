@@ -1,5 +1,5 @@
 # ResumeQuest (Formerly Critique AI)
-CritiqueAI job listing analysis and insight platform built with NextJS, Yarn, and deployed on Vercel
+ResumeQuest is a job listing analysis and insight platform built with NextJS, Yarn, and deployed on Vercel
 
 Deployment: [https://resumequest.careers](https://resumequest.careers)
 
